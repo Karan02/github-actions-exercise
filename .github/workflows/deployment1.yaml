@@ -2,7 +2,7 @@ name: Deployment Exercise 1
 # on: [push, workflow_dispatch]
 on:
   pull_request: #trigger 1
-    types: [opened, edited]
+    types: [opened, edited] # activity types of pull request event
   workflow_dispatch: #trigger 2
 
 jobs:
