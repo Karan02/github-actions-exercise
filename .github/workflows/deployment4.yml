@@ -1,3 +1,6 @@
+#Artifacts output files and folders - typically used for sharing log files, app binaries, etc.
+#Job Outputs - Simple values - typically used for reuse a value in different jobs, ex name of a file generated in previous step
+
 name: Deploy website
 on:
   push:
@@ -18,6 +21,8 @@ jobs:
   build:
     needs: test
     runs-on: ubuntu-latest
+    outputs:
+      script-file: ${{ steps.publish.outputs.script-file }}
     steps:
       - name: Get code
         uses: actions/checkout@v3
@@ -25,6 +30,9 @@ jobs:
         run: npm ci
       - name: Build website
         run: npm run build #dist folder generated here is artifact
+      - name: Publish JS filename
+        id: publish # helps access data
+        run: find dist/assets/*.js -type f -execdir echo 'script-file={}' >> $GITHUB_OUTPUT ';' # outputs the file name of js file
       - name: Upload artifacts
         uses: actions/upload-artifact@v4 # action
         with:
@@ -44,5 +52,7 @@ jobs:
           name: dist-files
       - name: Output contents
         run: ls
+      - name: Output filename
+        run: echo "${{ needs.build.outputs.script-file }}"
       - name: Deploy
         run: echo "Deploying..."
