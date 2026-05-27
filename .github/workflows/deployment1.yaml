@@ -1,5 +1,10 @@
 name: Deployment Exercise 1
-on: push
+# on: [push, workflow_dispatch]
+on:
+  pull_request: #trigger 1
+    types: [opened, edited]
+  workflow_dispatch: #trigger 2
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
