@@ -26,7 +26,7 @@ jobs:
       - name: Build website
         run: npm run build #dist folder generated here is artifact
       - name: Upload artifacts
-        uses: actions/upload-artifact@v3 # action
+        uses: actions/upload-artifact@v4 # action
         with:
           name: dist-files #identifier
           path: |
