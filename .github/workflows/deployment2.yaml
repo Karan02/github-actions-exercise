@@ -33,7 +33,9 @@ jobs:
       - name: Test code
         run: npm run test
       - name: Echo from environment
-        run: echo "secrets From repository environment - testing and not from repository secrets: ${{ secrets.POSTGRESQL_DB }}" #check settings of repository on github
+        run:
+          echo "secrets From repository environment - testing and not from repository secret- ${{ secrets.POSTGRESQL_DB }}"
+          #check settings of repository on github
   deploy:
     needs: test
     runs-on: ubuntu-latest
