@@ -39,4 +39,4 @@ jobs:
       - name: Build code
         run: npm run build
       - name: Deploy code
-        run: echo "Deploying..., DB ${{ env.MONGODB_DB_NAME }} or $MONGODB_DB_NAME or "
+        run: echo "Deploying..., DB ${{ env.MONGODB_DB_NAME }} or $MONGODB_DB_NAME "
