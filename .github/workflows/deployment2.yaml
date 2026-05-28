@@ -11,6 +11,9 @@ jobs:
     #   MONGODB_DB_NAME: xyz
     #   PORT: 4000
     runs-on: ubuntu-latest
+    env: # env variable on workflow level
+      MONGODB_DB_NAME: gha-demo
+      MONGODB_PASSWORD: ${{ secrets.MONGODB_PASSWORD }}
     steps:
       - name: Get code
         uses: actions/checkout@v3 # if you don't mention which repository to checkout, it will fetch this one
@@ -19,6 +22,7 @@ jobs:
       - name: Lint
         run: npm run lint
   test:
+    environment: testing
     needs: lint
     runs-on: ubuntu-latest
     steps:
@@ -28,6 +32,8 @@ jobs:
         run: npm ci
       - name: Test code
         run: npm run test
+      - name: Echo from environment
+        run: "ENV From repository environment `testing` and not from repository secrets: ${{ secrets.POSTGRESQL_DB }}"
   deploy:
     needs: test
     runs-on: ubuntu-latest
