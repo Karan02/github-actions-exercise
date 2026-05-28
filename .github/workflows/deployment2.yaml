@@ -2,6 +2,8 @@ name: Deployment Exercise 1 with env
 on: [push, workflow_dispatch]
 env: # env variable on workflow level
   MONGODB_DB_NAME: gha-demo
+  MONGODB_PASSWORD: ${{ secrets.MONGODB_PASSWORD }} # Stored in github secrets(in settings of repository),
+  # cannot echo it, github secret policy
 jobs:
   lint:
     # Job based environment variable
@@ -37,4 +39,4 @@ jobs:
       - name: Build code
         run: npm run build
       - name: Deploy code
-        run: echo "Deploying..., DB ${{ env.MONGODB_DB_NAME }}"
+        run: echo "Deploying..., DB ${{ env.MONGODB_DB_NAME }} or $MONGODB_DB_NAME or "
