@@ -1,7 +1,13 @@
 name: Deployment Exercise 1
 on: push
+env: # env variable on workflow level
+  MONGODB_DB_NAME: gha-demo
 jobs:
   lint:
+    # Job based environment variable
+    # env:    
+    #   MONGODB_DB_NAME: xyz
+    #   PORT: 4000
     runs-on: ubuntu-latest
     steps:
       - name: Get code
@@ -31,4 +37,4 @@ jobs:
       - name: Build code
         run: npm run build
       - name: Deploy code
-        run: echo "Deploying..."
+        run: echo "Deploying..., DB: ${{ env.MONGODB_DB_NAME }}"
