@@ -78,7 +78,7 @@ jobs:
         with:
           bucket: github-actions-test-001
           dist-folder: dist-files
-          # bucket-region: us-east-02
+          bucket-region: ap-south-1
         # run: echo "Deploying..."
       - name: Output Information
         run: |
