@@ -2,7 +2,7 @@
 name: "Deploy to AWS S3"
 description: "Deploy a static website via AWS S3"
 runs:
-  using: "node16"
+  using: "node20"
   # pre: "" #execute some file before main
   main: "main.js" # javascript action requires main
   # post: "" #execute some file after main
