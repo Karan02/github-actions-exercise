@@ -2,7 +2,7 @@ name: Deployment (Container)
 on:
   push:
     branches:
-      - main
+      - master
       - dev
 env:
   CACHE_KEY: node-deps
@@ -11,7 +11,7 @@ jobs:
   test:
     environment: testing
     runs-on: ubuntu-latest
-    container: # docker container
+    container: # docker container, this job will run in container
       image: node:16
       # env:
     env:
