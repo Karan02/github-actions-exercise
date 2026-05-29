@@ -73,7 +73,7 @@ jobs:
     with:
       artifact-name: dist-files
     secrets:
-    some-secret: xyz # ${{ secrets.some-secret }}
+      some-secret: xyz # ${{ secrets.some-secret }}
   print-deploy-result:
     needs: deploy
     runs-on: ubuntu-latest
