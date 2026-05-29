@@ -1,4 +1,4 @@
-# Composite Action
+# Composite Action - combines multiple steps
 
 name: "Get & Cache Dependencies"
 description: "Get the dependencies (via npm) and cache item"
