@@ -76,7 +76,7 @@ jobs:
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }} # Must provide for docker action also
         with:
           bucket: github-actions-test-001
-          dist-folder: dist-files
+          dist-folder: ../dist-files
           # bucket-region: us-east-02
         # run: echo "Deploying..."
       - name: Output Information
