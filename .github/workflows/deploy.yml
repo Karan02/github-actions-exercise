@@ -1,14 +1,23 @@
 # Nodejs code for this is in Udemy lectures on github actions- docker section - starter project
 # Service container - hosts testing database in contrast to real production database
 name: Deployment (Container)
+
 on:
   push:
     branches:
       - master
       - dev
+  paths:
+    - "docker-project-separate/**"
+
 env:
   CACHE_KEY: node-deps
   MONGODB_DB_NAME: gha-demo
+
+defaults:
+  run:
+    working-directory: docker-project-separate
+
 jobs:
   test:
     environment: testing

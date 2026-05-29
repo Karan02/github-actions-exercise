@@ -1,7 +1,7 @@
 // @ts-check
 import { test, expect } from '@playwright/test';
 
-test('event creation', async ({ request }) => {
+test('event creation test', async ({ request }) => {
   const testTitle = 'Test event';
   const response = await request.post('/', {
     data: {
@@ -15,7 +15,7 @@ test('event creation', async ({ request }) => {
   expect(resData.event.title).toBe(testTitle);
 });
 
-test('getting events', async ({ request }) => {
+test('getting events test', async ({ request }) => {
   const response = await request.get('/');
   expect(response.ok()).toBeTruthy();
   const resDataRaw = await response.body();
