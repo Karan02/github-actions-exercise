@@ -72,6 +72,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Get code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v3 # get code first
       - name: Run custom action
         uses: ./.github/actions/deploy-s3-javascript # also can reference directly from github repo eg. Karan02/custom-action-1
