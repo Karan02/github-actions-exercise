@@ -1,3 +1,9 @@
+# use if checks if you want to run a specific job after one job failure
+#use continue-on-error, to just continue executing workflow, even if specific job fails
+
+# conclusion - step.step-id.conclusion - result of a completed step after continue-on-error is applied
+# outcome - step.step-id.outcome - result of a completed step before continue-on-error is applied
+
 name: Website Deployment
 on:
   push:

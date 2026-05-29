@@ -11,14 +11,14 @@ on:
     outputs:
       result:
         description: The result of the deployment operation
-        value: ${{ jobs.deploy.outputs.outcome }}
+        value: ${{ jobs.deploy.outputs.status }}
     secrets:
       some-secret:
         required: false
 jobs:
   deploy:
     outputs:
-      outcome: ${{ steps.set-result.outputs.step-result }}
+      status: ${{ steps.set-result.outputs.step-result }}
     runs-on: ubuntu-latest
     steps:
       - name: Get code
