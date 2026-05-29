@@ -64,7 +64,7 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: dist-files
-          path: dist-files
+          path: dist-files # this is important when working with subdirectories
       - name: Output contents
         run: pwd
       - name: Deploy site
