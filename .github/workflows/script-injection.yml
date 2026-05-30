@@ -1,0 +1,21 @@
+name: Label Issues (Script Injection Example)
+on:
+  issues:
+    types:
+      - opened
+jobs:
+  assign-label:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Assign label
+        env:
+          TITLE: ${{ github.event.issue.title }} # To prevent script injection ,If you are using user generated values,
+          # it is strongly recommended that you store them first in environment variables and then access it
+        run:
+          # issue_title="${{ github.event.issue.title }}"
+          |
+          if [[ "$TITLE" == *"bug"* ]]; then
+          echo "Issue is about a bug!"
+          else
+          echo "Issue is not about a bug"
+          fi
