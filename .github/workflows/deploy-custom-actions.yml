@@ -72,7 +72,7 @@ jobs:
         run: ls
       #with OIDC(open ID connection) we do not need aws access key and access id manually, commented below
       - name: Get AWS permissions
-        uses: aws-actions/configure-aws-credentials
+        uses: aws-actions/configure-aws-credentials@v6
         with:
           role-to-assume: arn:aws:iam::905418281563:role/github-actions-demo-1 # arn
           aws-region-1: ap-south-1
