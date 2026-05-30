@@ -70,6 +70,7 @@ jobs:
           path: dist-files # this is important when working with subdirectories
       - name: Output contents
         run: ls
+      # Recommended OIDC vs Direct AWS Access Key/ID access
       # https://docs.github.com/en/actions/how-tos/secure-your-work/security-harden-deployments/oidc-in-aws
       # attached role S3FullAccess
       # with OIDC(open ID connection) we do not need aws access key and access id manually, commented out below
